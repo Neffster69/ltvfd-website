@@ -48,3 +48,13 @@ export const employeeRequests = sqliteTable("employee_requests", {
     createdAt: integer("created_at", { mode: "timestamp" }).default(sql`CURRENT_TIMESTAMP`),
     updatedAt: integer("updated_at", { mode: "timestamp" }).default(sql`CURRENT_TIMESTAMP`),
 })
+
+export const flaggedConversations = sqliteTable("flagged_conversations", {
+    id: text("id").primaryKey(),
+    conversationId: text("conversation_id").notNull(),
+    messages: text("messages").notNull(), // JSON string
+    flaggedKeywords: text("flagged_keywords").notNull(), // JSON string
+    reviewed: integer("reviewed", { mode: "boolean" }).default(false).notNull(),
+    adminNotes: text("admin_notes"),
+    createdAt: integer("created_at", { mode: "timestamp" }).default(sql`CURRENT_TIMESTAMP`),
+})

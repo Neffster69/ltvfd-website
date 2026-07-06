@@ -10,7 +10,7 @@ export default function Login() {
     const [error, setError] = useState("")
     const router = useRouter()
 
-    const onSubmit = async (data: any) => {
+    const onSubmit = async (data: Record<string, unknown>) => {
         const result = await signIn("credentials", {
             email: data.email,
             password: data.password,

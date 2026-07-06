@@ -1,24 +1,47 @@
+import Image from "next/image"
+import PublicSiteLayout from "@/components/PublicSiteLayout"
+
+const staffMembers = [
+    {
+        name: "Chief John Doe",
+        rank: "Fire Chief",
+        image: "/staffing/chief.svg",
+        bio: "Leads the department with an emphasis on readiness, safety, and community trust."
+    },
+    {
+        name: "Captain Jane Smith",
+        rank: "Operations Captain",
+        image: "/staffing/captain.svg",
+        bio: "Coordinates response readiness and oversees day-to-day operational planning."
+    },
+    {
+        name: "Lieutenant Bob Johnson",
+        rank: "Training Lieutenant",
+        image: "/staffing/lieutenant.svg",
+        bio: "Guides training standards and helps prepare members for service in the field."
+    }
+]
+
 export default function Staffing() {
     return (
-        <div className="min-h-screen bg-gray-50 p-6">
-            <h1 className="text-3xl mb-6">Our Team</h1>
-            <p className="mb-4">
-                Meet the dedicated professionals who serve our community.
-            </p>
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-                <div className="bg-white p-4 rounded shadow">
-                    <h3 className="text-xl font-semibold">Chief John Doe</h3>
-                    <p>Fire Chief</p>
-                </div>
-                <div className="bg-white p-4 rounded shadow">
-                    <h3 className="text-xl font-semibold">Captain Jane Smith</h3>
-                    <p>Operations Captain</p>
-                </div>
-                <div className="bg-white p-4 rounded shadow">
-                    <h3 className="text-xl font-semibold">Lieutenant Bob Johnson</h3>
-                    <p>Training Lieutenant</p>
-                </div>
+        <PublicSiteLayout
+            title="Staffing"
+            description="Meet the current ranking officials who help guide the department and support the mission of service to the community."
+        >
+            <div className="grid gap-6 md:grid-cols-2 xl:grid-cols-3">
+                {staffMembers.map(member => (
+                    <div key={member.name} className="overflow-hidden rounded-2xl border border-gray-200 bg-white shadow-sm">
+                        <div className="bg-red-50 p-4">
+                            <Image src={member.image} alt={member.name} width={480} height={640} className="h-72 w-full rounded-xl object-cover" />
+                        </div>
+                        <div className="p-6">
+                            <h3 className="text-xl font-semibold text-gray-900">{member.name}</h3>
+                            <p className="mt-1 font-medium text-red-600">{member.rank}</p>
+                            <p className="mt-3 text-sm text-gray-600">{member.bio}</p>
+                        </div>
+                    </div>
+                ))}
             </div>
-        </div>
+        </PublicSiteLayout>
     )
 }

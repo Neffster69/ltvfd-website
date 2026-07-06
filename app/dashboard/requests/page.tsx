@@ -17,17 +17,17 @@ export default function Requests() {
     const [requests, setRequests] = useState<Request[]>([])
     const { register, handleSubmit, reset } = useForm()
 
-    useEffect(() => {
-        fetchRequests()
-    }, [])
-
     const fetchRequests = async () => {
         const res = await fetch('/api/requests')
         const data = await res.json()
         setRequests(data)
     }
 
-    const onSubmit = async (data: any) => {
+    useEffect(() => {
+        fetchRequests()
+    }, [])
+
+    const onSubmit = async (data: Record<string, unknown>) => {
         await fetch('/api/requests', {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
