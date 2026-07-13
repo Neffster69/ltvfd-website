@@ -90,13 +90,13 @@ export default function PublicSiteLayout({ children, title, description }: Publi
                             <h4 className="font-bold mb-4">Contact Info</h4>
                             <p className="text-gray-300">Emergency: 911</p>
                             <p className="text-gray-300">Non Emergency Phone: (765) 393-0249</p>
-                            <p className="text-gray-300 whitespace-nowrap">Email: oic@lafeyttetownshipfire.org</p>
+                            <p className="text-gray-300 whitespace-nowrap">Email: <a href="mailto:ltvfd30admin@gmail.com" className="hover:text-red-400">ltvfd30admin@gmail.com</a></p>
                             <p className="text-gray-300 whitespace-nowrap">Facebook: https://www.facebook.com/lafayettetownshipfire</p>
                             <p className="text-gray-300 whitespace-nowrap">Address: 3235 N 100 W, Anderson, IN 46011</p>
                         </div>
                         <div>
                             <h4 className="font-bold mb-4">Hours</h4>
-                            <p className="text-gray-300">Office Hours 8:00a.m.-5:00p.m.</p>
+                            <p className="text-gray-300">Office Hours: Monday-Friday, 8:00 a.m. - 5:00 p.m.</p>
                             <p className="text-gray-300">24/7 Emergency Response</p>
                             <p className="text-gray-300">Available Always</p>
                         </div>

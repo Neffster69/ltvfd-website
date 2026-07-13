@@ -9,11 +9,12 @@ export default function Contact() {
     const [submitted, setSubmitted] = useState(false)
 
     const onSubmit = async (data: Record<string, unknown>) => {
-        const res = await fetch('/api/contact', {
-            method: 'POST',
-            headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify(data)
+        const res = await fetch("/api/contact", {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify(data),
         })
+
         if (res.ok) {
             setSubmitted(true)
             reset()
@@ -28,25 +29,25 @@ export default function Contact() {
             <div className="grid gap-8 lg:grid-cols-[0.95fr_1.05fr]">
                 <div className="space-y-6">
                     <div className="rounded-2xl border border-gray-200 bg-white p-6 shadow-sm">
-                        <h2 className="text-2xl font-bold text-red-600">Emergency Notice</h2>
-                        <p className="mt-2 text-gray-700">If you are experiencing an emergency or need immediate fire or medical assistance, please call 911 immediately. Do not use this form for emergency requests.</p>
+                        <h2 className="mb-4 text-2xl font-bold text-red-600">Emergency Notice</h2>
+                        <p className="text-gray-700">If you are experiencing an emergency or need immediate fire or medical assistance, please call 911 immediately. Do not use this form for emergency requests.</p>
                     </div>
 
                     <div className="rounded-2xl border border-gray-200 bg-white p-6 shadow-sm">
-                        <h2 className="text-2xl font-bold text-red-600 mb-4">Station Contact Details</h2>
+                        <h2 className="mb-4 text-2xl font-bold text-red-600">Station Contact Details</h2>
                         <ul className="space-y-3 text-gray-700">
                             <li><span className="font-semibold">Phone:</span> (765) 393-0249</li>
-                            <li><span className="font-semibold">Email:</span> oic@lafeyttetownshipfire.org</li>
+                            <li><span className="font-semibold">Email:</span> <a href="mailto:ltvfd30admin@gmail.com" className="text-red-600 hover:text-red-800">ltvfd30admin@gmail.com</a></li>
                             <li><span className="font-semibold">Facebook:</span> <a href="https://www.facebook.com/lafayettetownshipfire" target="_blank" rel="noreferrer" className="text-red-600 hover:text-red-800">Lafayette Township Fire Department</a></li>
                             <li><span className="font-semibold">Address:</span> 3235 N 100 W, Anderson, IN 46011</li>
-                            <li><span className="font-semibold">Business Hours:</span> Monday-Friday, 8:00 a.m. - 5:00 p.m.</li>
+                            <li><span className="font-semibold">Office Hours:</span> Monday-Friday, 8:00 a.m. - 5:00 p.m.</li>
                         </ul>
                     </div>
                 </div>
 
                 <div className="rounded-2xl border border-gray-200 bg-white p-6 shadow-sm">
-                    <h2 className="text-2xl font-bold text-red-600 mb-4">Send a Message</h2>
-                    <p className="text-gray-600 mb-6">Questions about events, station access, or volunteer opportunities can be sent here.</p>
+                    <h2 className="mb-4 text-2xl font-bold text-red-600">Send a Message</h2>
+                    <p className="mb-6 text-gray-600">Questions about events, station access, or volunteer opportunities can be sent here. Submissions are sent to our admin inbox at <a href="mailto:ltvfd30admin@gmail.com" className="text-red-600 hover:text-red-800">ltvfd30admin@gmail.com</a>.</p>
                     {submitted ? (
                         <div className="rounded-xl border border-green-200 bg-green-50 p-4 text-green-700">
                             Thank you for your message. We will get back to you soon.
